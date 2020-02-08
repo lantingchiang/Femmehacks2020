@@ -10,7 +10,7 @@ class User(AbstractUser):
     field = models.CharField(max_length=200, blank=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['password']
+    REQUIRED_FIELDS = ['password', 'email']
 
     def __str__(self):
         return self.username
@@ -26,9 +26,17 @@ class Post(models.Model):
     title = models.CharField(max_length=400)
     description = models.TextField()
     allow_comments = models.BooleanField(default=allow_comment_default())
+    date = models.DateTimeField()
+
+    class Meta:
+        ordering = ['-date']
 
 
 class Comment(models.Model):
     comment = models.TextField()
+    date = models.DateTimeField()
     # also delete this comment when the corresponding post is deleted
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    
+    class Meta:
+        ordering = ['-date']
