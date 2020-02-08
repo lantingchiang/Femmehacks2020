@@ -17,16 +17,21 @@ class User(AbstractUser):
 
 
 class Post(models.Model):
+    title = models.CharField(max_length=400)
+    description = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
     def allow_comment_default():
         return False   
+
+    allow_comments = models.BooleanField(default=allow_comment_default())
 
     def __str__(self):
         return self.title
 
-    title = models.CharField(max_length=400)
-    description = models.TextField()
-    allow_comments = models.BooleanField(default=allow_comment_default())
-    date = models.DateTimeField()
+    
+    
+  
 
     class Meta:
         ordering = ['-date']
