@@ -1,0 +1,26 @@
+<html>
+
+    <div class = "page">
+        <h1><websiteTitle>Unsilenced</websiteTitle></h1>
+        <h1><dscrb>This is a safe place for women to talk about their difficult paths in their paths to success anonymously</dscrb></h1>
+        <h1><signIn>Sign In</signIn></h1>
+            <form action="/auth" method="POST">
+                <input name="username" placeholder="Username" type="text" required /><br/>
+                <input name="password" placeholder="Password" type="text" required /><br/>
+                <input type="submit" value="LOGIN" class="submit" />
+            </form>
+        <h1><signUp>or Sign Up!</signUp></h1>
+            <form action="/createUser" method="POST">
+                <input name="username" placeholder="Username" type="text" required /><br/>
+                <input name="password" placeholder="Password" type="text" required /><br/>
+                <input name="confirmedPassword" placeholder="Confirmed Password" type="text" required /><br/>
+                <input name="email" placeholder="Email" type="text" required /><br/>
+                
+                <input type="submit" value="Register" class="submit" />
+            </form>
+        
+        
+    </div>
+    
+
+</html>
