@@ -16,7 +16,7 @@ def home(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('view-post/')
+            return redirect('view-post')
         else:
             return HttpResponse("Your login credentials don't match. Please try again.")
     else:
@@ -39,7 +39,7 @@ def create_post(request):
 
         new_post = Post(title=title, description=description, allow_comments=allow)
         new_post.save()
-        return redirect('view-post/')
+        return redirect('view-post')
     else:
         return render(request, 'create_post.html')
 
@@ -68,7 +68,7 @@ def comment(request):
             post_instance = get_object_or_404(Post, title=post)
             new_comment.post = post_instance
             new_comment.save()
-            return redirect('view-post/')
+            return redirect('view-post')
 
         except Http404:
             return HttpResponse("The post you're trying to comment on doesn't exist")
