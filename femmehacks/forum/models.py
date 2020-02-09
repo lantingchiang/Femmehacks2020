@@ -39,7 +39,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add=True)
     # also delete this comment when the corresponding post is deleted
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
     

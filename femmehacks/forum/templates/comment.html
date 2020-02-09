@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <title>Comment</title>
+    <h1>Comment on a post!</h1>
+    {% block content %}
+    <form action="/comment" method="POST">
+        {% csrf_token %}
+        Comment: <input type="text" name="username"> <br><br>
+        Post title: <input type="text" name="postname"> <br><br>
+        <input type="submit" name="submit">
+    </form>
+    <br>
+    {% endblock %}
+</html>

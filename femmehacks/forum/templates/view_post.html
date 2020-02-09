@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <title>View Posts</title>
+    <h1>View Posts Here!</h1>
+    <body>
+        {% if post_list %}
+            <ul>
+            {% for post in post_list %}
+                <li><a>Post title: {{ post.title }}</a>  <br>
+                    <a>Post description: {{ post.description }}</a><br>  
+                    <a>Allow comments: {{ post.allow_comments }}</a><br>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+        <a href="/accounts/logout">Click here to log out</a>
+    </body>
+    
+
+</html>

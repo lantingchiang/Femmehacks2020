@@ -58,10 +58,9 @@ def display(request, title):
 def comment(request):
     if request.method ==  'POST':
         comment = request.POST.get('comment')
-        date = request.POST.get('date')
         post = request.POST.get('postname')
 
-        new_comment = Comment(comment=comment, date=date)
+        new_comment = Comment(comment=comment)
         new_comment.save()
 
         try:
@@ -78,7 +77,7 @@ def comment(request):
 
 
 #logout
-def logout(request):
+def logout_func(request):
     logout(request)
     return redirect('/')
 
